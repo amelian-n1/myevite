@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Event Details</title>
+</head>
+<body>
+    <a href="/dashboard">Dashboard</a>
+    <h3>Event details</h3>    
+    <p>Title: {{ event.title }}</p>
+    <p>Date: {{ event.date }}</p>
+    <p>Time: {{ event.start_time }} to {{ event.end_time }}</p>
+    <p>Address: {{ event.line1 }}</p>
+    <p>{{ event.line2 }}</p>
+    <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
+    <p>Description: {{ event.details }}</p>
+
+    <h4>Guest responses</h4>
+    {% for rsvp in event.rsvps.all %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ rsvp.guest.first_name }} {{ rsvp.guest.last_name }}</p></td>
+                <td>{{ rsvp.guest.email }}</td>
+                <td>{{ rsvp.response }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+
+</body>
+</html>

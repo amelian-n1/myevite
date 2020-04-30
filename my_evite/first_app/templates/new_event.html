@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Event</title>
+</head>
+<body>
+    <a href="/dashboard">Dashboard</a>
+    <h3>Create an event</h3>
+    <form action="createEvent" method='POST'>
+        {% csrf_token %}
+        <div>
+            <p>Title:<input type="text" name='title'></p>
+        </div>
+        <div>
+            <p>Description:<textarea name="details" type="text"></textarea>
+            </p>
+        </div>
+        <div>
+            <p>Date:<input type="date" name='date'></p>
+        </div>
+        <div>
+            <p>Start time:<input type="time" name='start_time'></p>
+        </div>
+        <div>
+            <p>End time:<input type="time" name='end_time'></p>
+        </div>
+        <div>
+            <p>Address (line 1):<input type="text" name="line1"></p>
+        </div>
+        <div>
+            <p>Address (line 2):<input type="text" name="line2"></p>
+        </div>
+        <div>
+            <p>City:<input type="text" name="city"></p>
+        </div>
+        <div>
+            <p>State:<input type="text" name="state"></p>
+        </div>
+       <div>
+           <p>Zipcode:<input type="number" name="zip"></p>
+       </div>
+        <input type="submit" value='Submit'>
+    </form>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

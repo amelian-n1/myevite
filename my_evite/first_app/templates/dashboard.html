@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <p>Welcome, {{ request.session.first_name }}!</p>
+    <h3>Dashboard</h3>
+    <a href="newEvent">Add an event</a>
+    <h4>Your upcoming events</h4>
+    <table>
+        <tbody> 
+            {% for event in upcoming_events %}
+                <tr>
+                    <td>{{ event.title }}<br>
+                        {{ event.date }}<br>
+                        {{ event.start_time }} to {{ event.end_time }}
+                    </td>
+                    <td>
+                        RSVP totals
+                    </td>
+                    <td><a href="evite/{{ event.id }}">My evite</a><br>
+                        <a href="eventDetails/{{ event.id }}">Event details</a><br>
+                        <a href="delete/{{ event.id }}">Delete event</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h4>Your past events</h4>
+    <table>
+        <tbody> 
+            {% for event in past_events %}
+                <tr>
+                    <td>{{ event.date }}</td>
+                    <td><a href="eventDetails/{{ event.id }}">{{ event.title }}</a><br>
+                        {{ event.start_time }} to {{ event.end_time }}
+                    </td>
+                    <td><a href="evite/{{ event.id }}">My evite</a><br>
+                        RSVP totals<br>
+                        <p>{{ yes_number }}</p>
+                        <a href="">Full guest list</a>
+                    </td>
+                    <td><a href="delete/{{ event.id }}">Delete</a></td>
+                </tr>        
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

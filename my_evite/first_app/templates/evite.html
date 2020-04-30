@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've Been Invited!</title>
+</head>
+<body>
+    <h3>You've been invited!</h3>
+    {% for event in event %} 
+        <h4>To: {{ event.title }}</h4>
+    {% endfor %}
+    {% for host in host %}   
+        <h4>Hosted by: {{ host.first_name }} {{ host.last_name }}</h4>
+    {% endfor %}
+    {% for event in event %}
+        <p>When: {{ event.date }}, {{ event.start_time }} to {{ event.end_time }}</p>  
+        <p>Where: {{ event.line1 }}</p>
+        <p>{{ event.line2 }}</p>
+        <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
+        <p>Description: {{ event.details }}</p>
+    {% endfor %}
+
+    {% for event in event %}
+    <h4>RSVP here:</h4>
+    <form action="/rsvp" method='POST'>
+        {% csrf_token %}
+        <p>Note: Please captialize the first letter of your first and last name and enter your email address in all lower case. Thank you.</p>
+        <div>
+            <p>First name:<input type="text" name='first_name'></p>
+        </div>
+        <div>
+            <p>Last name:<input type="text" name='last_name'></p>
+        </div>
+        <div>
+            <p>Email:<input type="text" name='email'></p>
+        </div>
+        <div>
+            <p>Can you make it?
+                <select name="response">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="maybe">Maybe</option>
+                </select>
+            </p>
+        </div>
+        <input type="hidden" name="event_id" value="{{ event.id }}">
+        <input type="submit" value='Submit'>
+    </form>
+    {% endfor %}
+
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+</body>
+</html>
