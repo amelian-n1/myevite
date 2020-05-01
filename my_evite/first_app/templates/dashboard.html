@@ -19,12 +19,19 @@
                         {{ event.start_time }} to {{ event.end_time }}
                     </td>
                     <td>
-                        RSVP totals
-                        Yes: {{ event.rsvpYesNum }}
+                        <ul>
+                            <li>{{ event.rsvpYesNum }} attending</li>
+                            <li>{{ event.rsvpNoNum }} not attending</li>
+                            <li>{{ event.rsvpMaybeNum }} maybe attending</li>
+                        </ul>
                     </td>
-                    <td><a href="evite/{{ event.id }}">My evite</a><br>
-                        <a href="eventDetails/{{ event.id }}">Event details</a><br>
-                        <a href="delete/{{ event.id }}">Delete event</a></td>
+                    <td>
+                        <ul>
+                            <li><a href="evite/{{ event.id }}">My evite</a></li>
+                            <li><a href="eventDetails/{{ event.id }}">Event details</a></li>
+                            <li><a href="delete/{{ event.id }}">Delete event</a></li>
+                        </ul>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -33,18 +40,20 @@
     <table>
         <tbody> 
             {% for event in past_events %}
-                <tr>
-                    <td>{{ event.date }}</td>
-                    <td><a href="eventDetails/{{ event.id }}">{{ event.title }}</a><br>
-                        {{ event.start_time }} to {{ event.end_time }}
-                    </td>
-                    <td><a href="evite/{{ event.id }}">My evite</a><br>
-                        RSVP totals<br>
-                        <p>{{ yes_number }}</p>
-                        <a href="">Full guest list</a>
-                    </td>
-                    <td><a href="delete/{{ event.id }}">Delete</a></td>
-                </tr>        
+            <tr>
+                <td>{{ event.title }}<br>
+                    {{ event.date }}<br>
+                    {{ event.start_time }} to {{ event.end_time }}
+                </td>
+                <td>RSVPs are now closed</td>
+                <td>
+                    <ul>
+                        <li><a href="evite/{{ event.id }}">My evite</a></li>
+                        <li><a href="eventDetails/{{ event.id }}">Event details</a></li>
+                        <li><a href="delete/{{ event.id }}">Delete event</a></li>
+                    </ul>
+                </td>
+            </tr>     
             {% endfor %}
         </tbody>
     </table>
