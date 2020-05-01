@@ -102,7 +102,6 @@ def eventDetails(request,id):
         'event': Event.objects.get(id=id),
         'api_key': settings.GOOGLE_MAPS_API_KEY
     }
-    print(api_key,'<-- Right there')
     return render(request,'event_detail.html', context)
 
 def delete(request, id):
