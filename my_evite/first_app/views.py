@@ -5,6 +5,7 @@ from time import gmtime, strftime
 from .models import User, Event, Guest, RSVP
 from datetime import date
 import bcrypt
+from django.conf import settings
 
 def index(request):
     return render(request, 'index.html')
@@ -86,24 +87,28 @@ def createEvent(request):
             return redirect('/dashboard')
 
 def evite(request,id):
+    
     context = {
         'event': Event.objects.filter(id=id),
-        'host': User.objects.filter(id=request.session['userid'])
+        'host': User.objects.filter(id=request.session['userid']),
+        
     }
+    
     return render(request,'evite.html',context)
 
 def eventDetails(request,id):
+    api_key = settings.GOOGLE_MAPS_API_KEY
     context = {
         'event': Event.objects.get(id=id),
+        'api_key': settings.GOOGLE_MAPS_API_KEY
     }
-    return render(request,'event_detail.html',context)
+    print(api_key,'<-- Right there')
+    return render(request,'event_detail.html', context)
 
 def delete(request, id):
     event = Event.objects.filter(id=id)
     event.delete()
     return redirect('/dashboard')
-
-
 
 def rsvp(request):
     if request.method == "POST":

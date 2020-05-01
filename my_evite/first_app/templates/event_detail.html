@@ -15,7 +15,12 @@
     <p>{{ event.line2 }}</p>
     <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
     <p>Description: {{ event.details }}</p>
-
+    <div>
+        <h6>API Go here {{ api_key }}</h6>
+        
+        <iframe width="600" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/search?q=,+,+,+USA&key=" allowfullscreen></iframe>
+    </div>
     <h4>Guest responses</h4>
     {% for rsvp in event.rsvps.all %}
     <table>
