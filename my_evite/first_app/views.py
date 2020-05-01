@@ -91,16 +91,16 @@ def evite(request,id):
     context = {
         'event': Event.objects.filter(id=id),
         'host': User.objects.filter(id=request.session['userid']),
-        
+        'api_key': settings.GOOGLE_MAPS_API_KEY
     }
     
     return render(request,'evite.html',context)
 
 def eventDetails(request,id):
-    api_key = settings.GOOGLE_MAPS_API_KEY
+    
     context = {
         'event': Event.objects.get(id=id),
-        'api_key': settings.GOOGLE_MAPS_API_KEY
+        
     }
     return render(request,'event_detail.html', context)
 
