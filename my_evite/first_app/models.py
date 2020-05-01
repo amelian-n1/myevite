@@ -88,6 +88,16 @@ class Event(models.Model):
     objects = EventManager()
     class Meta:
         app_label = 'first_app'
+    
+    def rsvpYesNum(self):
+        return self.rsvps.filter(response="yes").count()
+
+    def rsvpNoNum(self):
+        return self.rsvps.filter(response="no").count()
+    
+    def rsvpMaybeNum(self):
+        return self.rsvps.filter(response="maybe").count()
+
 
 class RSVP(models.Model):
     guest = models.ForeignKey(Guest, related_name="rsvps",on_delete=models.CASCADE)

@@ -50,7 +50,7 @@ def dashboard(request):
             'upcoming_events': Event.objects.filter(host=request.session['userid']).filter(date__gte=date.today()).order_by("date").all(),
             'past_events': Event.objects.filter(host=request.session['userid']).filter(date__lt=date.today()).order_by("date").all(),
             'host': User.objects.filter(id=request.session['userid']),
-            'yes_number': RSVP.objects.filter(response="yes").count()
+            'yes_number': Event.objects.filter(rsvps__response="yes").count()
         }
         return render(request, 'dashboard.html', context)
     return render(request, 'dashboard.html')
