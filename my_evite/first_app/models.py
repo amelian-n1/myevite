@@ -24,6 +24,10 @@ class Guest(models.Model):
     objects = GuestManager()
     class Meta:
         app_label = 'first_app'
+    
+    @property
+    def sorted_rsvps(self):
+        return self.rsvps.order_by('response')
 
 class UserManager(models.Manager):
     def user_validator(self, postData):
@@ -97,6 +101,10 @@ class Event(models.Model):
     
     def rsvpMaybeNum(self):
         return self.rsvps.filter(response="maybe").count()
+    
+    @property
+    def sorted_guest_rsvps(self):
+        return self.guest.rsvps.order_by('response')
 
 
 class RSVP(models.Model):

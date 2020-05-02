@@ -16,7 +16,7 @@
     <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
     <p>Description: {{ event.details }}</p>
     <h4>Guest responses</h4>
-    {% for rsvp in event.rsvps.all|sort(attribute='response', reverse = True) %}
+    {% for rsvp in event.rsvps.all %}
     <table>
         <thead>
             <tr>
