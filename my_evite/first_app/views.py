@@ -86,20 +86,20 @@ def createEvent(request):
             return redirect('/dashboard')
 
 def evite(request,id):
-    
-    context = {
-        'event': Event.objects.filter(id=id),
-        'host': User.objects.filter(id=request.session['userid']),
-        'api_key': settings.GOOGLE_MAPS_API_KEY
-    }
+    if 'userid' in request.session:
+        context = {
+            'event': Event.objects.filter(id=id),
+            'host': User.objects.filter(id=request.session['userid']),
+            'api_key': settings.GOOGLE_MAPS_API_KEY
+        }
     
     return render(request,'evite.html',context)
 
 def eventDetails(request,id):
-    
-    context = {
-        'event': Event.objects.get(id=id),
-    }
+    if 'userid' in request.session:
+        context = {
+            'event': Event.objects.get(id=id),
+        }
     return render(request,'event_detail.html', context)
 
 def delete(request, id):
@@ -184,3 +184,6 @@ def rsvp(request):
                 
                 return redirect('/evite/{}'.format(event_id))
 
+def logout(request):
+    request.session.clear()
+    return redirect('/')

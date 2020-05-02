@@ -11,4 +11,5 @@ urlpatterns = [
     path('eventDetails/<int:id>', views.eventDetails),
     path('rsvp', views.rsvp),
     path('delete/<int:id>', views.delete),
+    path('logout', views.logout),
 ]
