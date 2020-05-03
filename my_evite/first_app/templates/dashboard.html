@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Dashboard</title>
 </head>
+<header>
+    <nav class="grey" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/dashboard" class="brand-logo">Myevite</a></div>
+    </nav>
+</header>
 <body>
-    <p>Welcome, {{ request.session.first_name }}!</p>
+<div class="container">
+    <p>Welcome, {{ request.session.first_name }}! | <a href="logout">Log out</a></p>
     <h3>Dashboard</h3>
-    <a href="newEvent">Add an event</a>
-    <a href="logout">Log Out</a>
-    <h4>Your upcoming events</h4>
+    <a href="/newEvent" id="newevent" class="waves-effect waves-light btn-small right"><i class="material-icons right">add</i>Add an event</a>
+    <h5>Your upcoming events</h5>
     <table>
         <tbody> 
             {% for event in upcoming_events %}
                 <tr>
-                    <td>{{ event.title }}<br>
+                    <td><b>{{ event.title }}</b><br>
                         {{ event.date }}<br>
                         {{ event.start_time }} to {{ event.end_time }}
                     </td>
@@ -37,12 +44,12 @@
             {% endfor %}
         </tbody>
     </table>
-    <h4>Your past events</h4>
+    <h5>Your past events</h5>
     <table>
         <tbody> 
             {% for event in past_events %}
             <tr>
-                <td>{{ event.title }}<br>
+                <td><b>{{ event.title }}</b><br>
                     {{ event.date }}<br>
                     {{ event.start_time }} to {{ event.end_time }}
                 </td>
@@ -58,6 +65,6 @@
             {% endfor %}
         </tbody>
     </table>
-
+</div>
 </body>
 </html>

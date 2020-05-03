@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Event Details</title>
 </head>
 <body>
+<div class="container">
     <a href="/dashboard">Dashboard</a>
     <h3>Event details</h3>    
     <p>Title: {{ event.title }}</p>
@@ -34,6 +37,6 @@
         </tbody>
     </table>
     {% endfor %}
-
+</div>
 </body>
 </html>

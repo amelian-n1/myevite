@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>New Event</title>
 </head>
 <body>
+<div class="container">
     <a href="/dashboard">Dashboard</a>
     <h3>Create an event</h3>
     <form action="createEvent" method='POST'>
@@ -49,5 +52,6 @@
         {% endfor %}
     </ul>
     {% endif %}
+</div>
 </body>
 </html>
