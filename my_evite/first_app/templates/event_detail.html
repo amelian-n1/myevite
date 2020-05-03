@@ -14,8 +14,8 @@
 </header>
 <body>
 <div class="container">
-    <a href="/dashboard">Dashboard</a>
-    <h3>Event details</h3>    
+    <p><a href="/dashboard">Dashboard</a></p>
+    <h4>Event details</h4>    
     <p>Title: {{ event.title }}</p>
     <p>Date: {{ event.date }}</p>
     <p>Time: {{ event.start_time }} to {{ event.end_time }}</p>
@@ -23,7 +23,7 @@
     <p>{{ event.line2 }}</p>
     <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
     <p>Description: {{ event.details }}</p>
-    <h4>Guest responses</h4>
+    <h5>Guest responses</h5>
     {% for rsvp in event.rsvps.all %}
     <table>
         <thead>
