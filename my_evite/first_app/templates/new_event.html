@@ -6,52 +6,60 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>New Event</title>
 </head>
+<header>
+    <nav class="grey" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/dashboard" class="brand-logo">Myevite</a></div>
+    </nav>
+</header>
 <body>
 <div class="container">
-    <a href="/dashboard">Dashboard</a>
-    <h3>Create an event</h3>
-    <form action="createEvent" method='POST'>
-        {% csrf_token %}
-        <div>
-            <p>Title:<input type="text" name='title'></p>
-        </div>
-        <div>
-            <p>Description:<textarea name="details" type="text"></textarea>
-            </p>
-        </div>
-        <div>
-            <p>Date:<input type="date" name='date'></p>
-        </div>
-        <div>
-            <p>Start time:<input type="time" name='start_time'></p>
-        </div>
-        <div>
-            <p>End time:<input type="time" name='end_time'></p>
-        </div>
-        <div>
-            <p>Address (line 1):<input type="text" name="line1"></p>
-        </div>
-        <div>
-            <p>Address (line 2):<input type="text" name="line2"></p>
-        </div>
-        <div>
-            <p>City:<input type="text" name="city"></p>
-        </div>
-        <div>
-            <p>State:<input type="text" name="state"></p>
-        </div>
-       <div>
-           <p>Zipcode:<input type="number" name="zip"></p>
-       </div>
-        <input type="submit" value='Submit'>
-    </form>
+    <p><a href="/dashboard">Dashboard</a></p>
+    <h4>Create an event</h4>
     {% if messages %}
     <ul class="messages">    
         {% for message in messages %}    
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+             <p class="red-text"><i class="material-icons left">warning</i>{{ message }}</p>   
+            </li>    
         {% endfor %}
     </ul>
     {% endif %}
+    <form action="createEvent" method='POST'>
+        {% csrf_token %}
+        <div class="col s12">
+            <p>Title:<input type="text" name='title'></p>
+        </div>
+        <div class="col s12">
+            <p>Description:<input type="text" name='details'></p>
+        </div>
+        <div class="col s12">
+            <p>Date:<input type="date" name='date'></p>
+        </div>
+        <div class="col s12">
+            <p>Start time:<input type="time" name='start_time'></p>
+        </div>
+        <div class="col s12">
+            <p>End time:<input type="time" name='end_time'></p>
+        </div>
+        <div class="col s12">
+            <p>Address (line 1):<input type="text" name="line1"></p>
+        </div>
+        <div class="col s12">
+            <p>Address (line 2):<input type="text" name="line2"></p>
+        </div>
+        <div class="col s12">
+            <p>City:<input type="text" name="city"></p>
+        </div>
+        <div class="col s12">
+            <p>State:<input type="text" name="state"></p>
+        </div>
+        <div class="col s12">
+           <p>Zipcode:<input type="number" name="zip"></p>
+       </div>
+       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+        </button>
+    </form>
 </div>
 </body>
 </html>

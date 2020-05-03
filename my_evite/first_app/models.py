@@ -58,21 +58,21 @@ class EventManager(models.Manager):
     def eventValidate(self, postData):
         errors={}
         if len(postData['title'])<1:
-            errors['title']="Please enter a title"
+            errors['title']="Please enter a title."
         if len(postData['details'])<1:
-            errors['details']="Please enter a description"
+            errors['details']="Please enter a description."
         if len(postData['date'])==False:
-            errors['date']="Please enter a date"
+            errors['date']="Please enter a date."
         if len(postData['start_time'])==False:
-            errors['start_time']="Please enter time"        
+            errors['start_time']="Please enter a time."        
         if len(postData['line1'])<1:
-            errors['line1']="Please enter your street address"
+            errors['line1']="Please enter a street address."
         if len(postData['zip'])<1:
-            errors['zip']="Please enter your ZIP Code"
+            errors['zip']="Please enter a zip code."
         if len(postData['city'])<1:
-            errors['city']="Please enter your city"
+            errors['city']="Please enter a city."
         if len(postData['state'])<1:
-            errors['state']="Please enter your state"
+            errors['state']="Please enter a state."
         return errors
     
 class Event(models.Model):
