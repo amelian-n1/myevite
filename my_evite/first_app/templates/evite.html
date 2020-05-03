@@ -5,69 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>You've Been Invited!</title>
+    <title>You're Invited!</title>
 </head>
 <header>
     <nav class="grey" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="/dashboard" class="brand-logo">Myevite</a></div>
+        <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Myevite</a></div>
     </nav>
 </header>
 <body>
 <div class="container">
-    <h3>You've been invited!</h3>
+    <h3 class="header center">You've been invited!</h3>
     {% for event in event %} 
-        <h4>To: {{ event.title }}</h4>
+        <h5 class="row center">To: {{ event.title }}</h5>
     {% endfor %}
     {% for host in host %}   
-        <h4>Hosted by: {{ host.first_name }} {{ host.last_name }}</h4>
+        <h6 class="row center">Hosted by: {{ host.first_name }} {{ host.last_name }}</h6>
     {% endfor %}
-    {% for event in event %}
-        <p>When: {{ event.date }}, {{ event.start_time }} to {{ event.end_time }}</p>  
-        <p>Where: {{ event.line1 }}</p>
-        <p>{{ event.line2 }}</p>
-        <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
-        <p>Description: {{ event.details }}</p>
-        <div>
-            <iframe width="600" height="450" frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/search?q={{event.line1}},{{ event.line2 }}+{{ event.city }},{{ event.state }}+{{ event.zip }},+USA&key={{ api_key }}" allowfullscreen></iframe>
+    <div class="row">
+        <div class="col s6"> 
+        {% for event in event %}
+            <p>When: {{ event.date }}, {{ event.start_time }} to {{ event.end_time }}</p>  
+            <p>Where: {{ event.line1 }}</p>
+            <p>{{ event.line2 }}</p>
+            <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
+            <p>Description: {{ event.details }}</p>
         </div>
-    {% endfor %}
+        <div class="col s6">
+            <div class ="video-container">
+                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q={{event.line1}},{{ event.line2 }}+{{ event.city }},{{ event.state }}+{{ event.zip }},+USA&key={{ api_key }}" allowfullscreen></iframe>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     {% for event in event %}
-    <h4>RSVP here:</h4>
+    <h4 class="row center">RSVP:</h4>
     <form action="/rsvp" method='POST'>
         {% csrf_token %}
-        <p>Note: Please captialize the first letter of your first and last name and enter your email address in all lower case. Thank you.</p>
-        <div>
-            <p>First name:<input type="text" name='first_name'></p>
-        </div>
-        <div>
-            <p>Last name:<input type="text" name='last_name'></p>
-        </div>
-        <div>
-            <p>Email:<input type="text" name='email'></p>
-        </div>
-        <div>
-            <p>Can you make it?
-                <select name="response">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="maybe">Maybe</option>
-                </select>
-            </p>
+        <p class="row center">Note: Please captialize the first letter of your first and last name. Enter your email address in all lower case. Thank you.</p>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                <p class="red-text row center">{{ message }}</p>   
+            </li>
+            {% endfor %}    
+        </ul>
+        {% endif %}
+        <div class="row">
+            <div class="col s6"> 
+            <div>
+                <p>First name:<input type="text" name='first_name'></p>
+            </div>
+            <div>
+                <p>Last name:<input type="text" name='last_name'></p>
+            </div>
+            </div>
+            <div class="col s6"> 
+            <div>
+                <p>Email:<input type="text" name='email'></p>
+            </div>
+            <div>
+                <p>Can you make it?
+                    <select name="response" class="browser-default">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="maybe">Maybe</option>
+                    </select>
+                </p>
+            </div>
+            </div>
         </div>
         <input type="hidden" name="event_id" value="{{ event.id }}">
-        <input type="submit" value='Submit'>
+        <div class="row center">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+        </div>
     </form>
     {% endfor %}
-
-    {% if messages %}
-    <ul class="messages">    
-        {% for message in messages %}    
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-        {% endfor %}
-    </ul>
-    {% endif %}
 </div>
 </body>
 </html>

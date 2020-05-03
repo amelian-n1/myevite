@@ -24,7 +24,6 @@
     <p>{{ event.city }}, {{ event.state }} {{ event.zip }}</p>
     <p>Description: {{ event.details }}</p>
     <h5>Guest responses</h5>
-    {% for rsvp in event.rsvps.all %}
     <table>
         <thead>
             <tr>
@@ -33,6 +32,7 @@
                 <th>Response</th>
             </tr>
         </thead>
+    {% for rsvp in event.rsvps.all %}
         <tbody>
             <tr>
                 <td>{{ rsvp.guest.first_name }} {{ rsvp.guest.last_name }}</p></td>
@@ -40,8 +40,8 @@
                 <td>{{ rsvp.response }}</td>
             </tr>
         </tbody>
-    </table>
     {% endfor %}
+    </table>
 </div>
 </body>
 </html>
