@@ -1,3 +1,3 @@
-# myevite
+# MyEvite
 
-Added dotenv to pass environment variables
+A group project by @amelian-n1 and @
