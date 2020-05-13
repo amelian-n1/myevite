@@ -19,7 +19,7 @@ If our desired attendees are not checking their Facebooks, how can we invite the
 
 <img align="right" src="/images/event_form.png" width="350" />
 
-We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to a hand picked list of Facebook friends, users would distribute the evites themselves over email or text - whatever way they could most easily reach their desired attendees.
+We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to a hand picked list of Facebook friends, users would distribute the evites themselves over email or text - whatever way they could most easily reach their desired guests.
 
 Users would first register their email address and create a password that would be encrypted and stored in the database. This would allow for all of their events to be stored in one secure location.
 
@@ -27,7 +27,7 @@ After registering, users would login and be directed to the Create an event form
 
 After clicking submit, the user would be directed to the Dashboard. As the central home of the app, the Dashboard includes all of their events, evites, and quick snapshots of the RSVPs.
 
-Clicking on Event details would show all of the details submitted in the Create an event form and provide a list of all of the RSVPed guests, including their names and email addresses.
+Clicking on Event details would show all of the details submitted in the event form and provide a list of all of the RSVPed guests, including their names and email addresses.
 
 Clicking on My evite would open the event invitation with all of their specified details and RSVP form. To make it easy for attendees to find the event location, we added the Google Map API which shows a map of the physical location.
 
