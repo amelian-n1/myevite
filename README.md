@@ -43,18 +43,10 @@ Clicking on My evite would open the event invitation with all of their specifed 
 Python, Django, HTML, Materialize
 
 # Installation
-Check that you have the installs found in requirements.txt. Create and activate the appropriate virtual environment.
-
-Execute the my_db.sql file in your MySQL server.
-
-Open mysqlconnection.py and insert your local host, username, and password to ensure proper connection.
+Activate your Django virtual environment.
 
 Navigate to the downloaded folder in your terminal. Run the following command.
 
-‘’’ mac/bash $ python3 server.py ‘’’
+‘’’ $ python manage.py runserver ‘’’
 
-or
-
-‘’’ windows/cmd $ python server.py ‘’’
-
-Go to localhost:5000 in your web browser.
+Go to localhost:8000 in your web browser.
