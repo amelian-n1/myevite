@@ -19,7 +19,7 @@ If our desired attendees are not checking their Facebooks, how can we invite the
 
 <img align="right" src="/images/event_form.png" width="350" />
 
-We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to hand picked list of Facebook friends, the users would distribute the evites themselves over email or text - whatever way they could most easily reach their desired attendees.
+We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to a hand picked list of Facebook friends, users would distribute the evites themselves over email or text - whatever way they could most easily reach their desired attendees.
 
 Users would first register their email address and create a password that would be encrypted and stored in the database. This would allow for all of their events to be stored in one secure location.
 
