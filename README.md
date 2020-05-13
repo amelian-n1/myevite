@@ -16,4 +16,7 @@ If our desired attendees are not checking their Facebooks, how can we invite the
 
 # The Solution
 
+We set out to build an easy to use RSVP form creator that users can use to invite friends to their events and keep track of RSVPs.
+
+
 
