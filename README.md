@@ -35,6 +35,9 @@ After clicking submit, the user would be directed to the Dashboard. As the centr
 </p>
 
 <br>
+<br>
+<br>
+<br>
 
 Clicking on Event details would show all of the details submitted in the Create an event form and provide a list of all of the RSVPs, including their names and email addresses.
 
