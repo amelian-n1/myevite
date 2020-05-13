@@ -23,6 +23,13 @@ We set out to build an easy to use RSVP form creator for users to invite friends
 
 Users would first register their email address and created a password that would be encrypted and stored in the database. After regsitering, they would login and be redirected to the Create an event form.
 
+Following the Facebook model, users would enter all necessary details of their upcoming event including time, date, location and description. All of this information would be populated into a simple landing page that would also include the RSVP form.
+
+After clicking submit, the user would be redirected to the Dashboard. As the central home of the app, this includes all of their events, evites, and quick snapshots of the RSVPs.
+
+<img align="right" src="/images/dashboard.png" width="400" />
+
+<img align="right" src="/images/event_details.png" width="400" />
 
 
 
