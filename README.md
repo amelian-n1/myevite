@@ -27,9 +27,9 @@ After registering, users would login and be directed to the Create an event form
 
 After clicking submit, the user would be directed to the Dashboard. As the central home of the app, the Dashboard includes all of their events, evites, and quick snapshots of the RSVPs.
 
-Clicking on Event details would show all of the details submitted in the Create an event form and provide a list of all of the RSVPs, including their names and email addresses.
+Clicking on Event details would show all of the details submitted in the Create an event form and provide a list of all of the RSVPed guests, including their names and email addresses.
 
-Clicking on My evite would open the event invitation with all of their specifed details and RSVP form. To make it easy for attendees to find the event location, we added the Google Map API which shows a map of the physical location.
+Clicking on My evite would open the event invitation with all of their specified details and RSVP form. To make it easy for attendees to find the event location, we added the Google Map API which shows a map of the physical location.
 
 <br>
 
