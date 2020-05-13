@@ -19,21 +19,28 @@ If our desired attendees are not checking their Facebooks, how can we invite the
 
 <img align="right" src="/images/event_form.png" width="250" />
 
-We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to hand picked list of Facebook friends, RSVP links, or evites, would need to be distributed by the users themselves over email or text - whatever way they could most easily reach their desired attendees.
+We set out to build an easy to use RSVP form creator for users to invite friends to their events and keep track of RSVPs. Rather than sending an invitation to hand picked list of Facebook friends, the users would distribute the evites themselves over email or text - whatever way they could most easily reach their desired attendees.
 
-Users would first register their email address and created a password that would be encrypted and stored in the database. After registering, they would login and be directed to the Create an event form.
+Users would first register their email address and created a password that would be encrypted and stored in the database. This would allow for all of their events to be stored in one secure location.
 
-Following the Facebook model, users would enter all necessary details of their upcoming event including time, date, location and description. All of this information would be populated into their evite.
+After registering, users would login and be directed to the Create an event form. Following the Facebook model, users would enter all necessary details of their upcoming event including time, date, location and description.
 
 After clicking submit, the user would be directed to the Dashboard. As the central home of the app, the Dashboard includes all of their events, evites, and quick snapshots of the RSVPs.
 
 <br>
 
 <p align="middle">
-  <img align="left" src="/images/dashboard.png" width="410" />
-  <img align="right" src="/images/event_details.png" width="410" />
+  <img align="left" src="/images/dashboard.png" width="415" />
+  <img align="right" src="/images/event_details.png" width="415" />
 </p>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -41,7 +48,7 @@ After clicking submit, the user would be directed to the Dashboard. As the centr
 
 Clicking on Event details would show all of the details submitted in the Create an event form and provide a list of all of the RSVPs, including their names and email addresses.
 
-<img align="right" src="/images/RSVP.png" width="250" />
+<img align="right" src="/images/RSVP.png" width="415" />
 
-
+Clicking on My evite would open the event invitation with all of their specifed details and RSVP form. To make it easy for attendees to find the event location, we added the Google Map API which shows a map of the physical location.
 
