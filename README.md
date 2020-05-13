@@ -27,9 +27,10 @@ Following the Facebook model, users would enter all necessary details of their u
 
 After clicking submit, the user would be redirected to the Dashboard. As the central home of the app, this includes all of their events, evites, and quick snapshots of the RSVPs.
 
-<img align="right" src="/images/dashboard.png" width="400" />
-
-<img align="right" src="/images/event_details.png" width="400" />
+<p align="left">
+  <img src="/images/dashboard.png" width="425" />
+  <img src="/images/event_details.png" width="425" />
+</p>
 
 
 
